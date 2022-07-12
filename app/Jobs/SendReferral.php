@@ -15,16 +15,19 @@ class SendReferral implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $referral;
+    public $referral;
+
+    public $user;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($referral)
+    public function __construct($referral, $user)
     {
         $this->referral = $referral;
+        $this->user = $user;
     }
 
     /**
@@ -35,6 +38,6 @@ class SendReferral implements ShouldQueue
     public function handle()
     {
         Mail::to($this->referral->email)
-            ->send(new ReferralEmail($this->referral->referral_code));
+            ->send(new ReferralEmail($this->referral->referral_code, $this->user));
     }
 }

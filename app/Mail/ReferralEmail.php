@@ -13,14 +13,17 @@ class ReferralEmail extends Mailable
 
     public $referralCode;
 
+    public $user;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($referralCode)
+    public function __construct($referralCode, $user)
     {
         $this->referralCode = $referralCode;
+        $this->user = $user;
     }
 
     /**
@@ -30,7 +33,7 @@ class ReferralEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact Out Referral Program')
+        return $this->subject("{$this->user->name} recommends ContactOut")
             ->view('mail.referral');
     }
 }

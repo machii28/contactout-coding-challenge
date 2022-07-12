@@ -24,7 +24,7 @@ class ReferralService implements ReferralServiceInterface
 
             $referral->save();
 
-            SendReferral::dispatch($referral);
+            SendReferral::dispatch($referral, $user);
         }
     }
 }

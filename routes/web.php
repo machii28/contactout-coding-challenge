@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('mail.referral');
 });
 
 Auth::routes();
@@ -25,3 +25,4 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/referrals', [\App\Http\Controllers\ReferralController::class, 'store'])->name('referral.store');
 });
+
