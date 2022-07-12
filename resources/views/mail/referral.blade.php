@@ -38,8 +38,8 @@
                         style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; padding: 25px 0; text-align: center;">
                         <a href="https://markdownmail.com"
                            style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; color: #bbbfc3; font-size: 19px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 #ffffff; display: inline-block;">
-                            <img src="https://laravel.com/img/notification-logo.png" class="logo" alt="Laravel Logo"
-                                 style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; max-width: 100%; border: none;"></a>
+                            <img src="{{ url('/images/logo-v2.png') }}" class="logo" alt="Contact Out"
+                                 style="font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; max-width: 50%; border: none;"></a>
                     </td>
                 </tr>
                 <!-- Email Body -->
