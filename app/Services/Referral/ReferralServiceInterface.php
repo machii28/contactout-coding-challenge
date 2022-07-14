@@ -12,5 +12,12 @@ interface ReferralServiceInterface
      * @param array $emails
      * @return mixed
      */
-    public function processReferral(User $user, array $emails = []);
+    public function refer(User $user, array $emails = []);
+
+    /**
+     * @param User $user
+     * @param Referral $referral
+     * @return mixed
+     */
+    public function processReferral(User $user, Referral $referral);
 }

@@ -22,6 +22,6 @@ class ReferralController extends Controller
     {
         $user = User::where('id', auth()->user()->id)->first();
 
-        return $referralService->processReferral($user, request()->get('emails'));
+        return $referralService->refer($user, request()->get('emails'));
     }
 }

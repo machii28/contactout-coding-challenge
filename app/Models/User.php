@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -40,4 +43,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return BelongsToMany
+     */
+    public function successfulReferrals(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'successful_referrals', 'referrer_user_id', 'successful_refer_user_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function referrer(): HasOne
+    {
+        return $this->hasOne(Referral::class, 'referrer_user_id', 'id');
+    }
 }

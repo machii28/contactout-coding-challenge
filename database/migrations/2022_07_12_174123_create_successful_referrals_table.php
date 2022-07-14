@@ -15,6 +15,8 @@ class CreateSuccessfulReferralsTable extends Migration
     {
         Schema::create('successful_referrals', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('referrer_user_id');
+            $table->unsignedInteger('successful_refer_user_id');
             $table->timestamps();
         });
     }

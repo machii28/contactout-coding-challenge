@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('mail.referral');
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware([/*'auth'*/])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/referral', [\App\Http\Controllers\ReferralController::class, 'index'])->name('referral.index');
 

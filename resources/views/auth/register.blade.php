@@ -61,6 +61,22 @@
                             </div>
                         </div>
 
+                        @if (request()->has('refer'))
+                            <div class="row mb-3">
+                                <label for="referral_code" class="col-md-4 col-form-label text-md-end">{{ __('Referral Code') }}</label>
+
+                                <div class="col-md-6">
+                                    <input readonly id="referral_code" type="text" class="form-control @error('referral_code') is-invalid @enderror" name="referral_code" value="{{ request()->get('refer') }}">
+
+                                    @error('referral_code')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

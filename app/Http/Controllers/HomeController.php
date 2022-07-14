@@ -13,6 +13,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $successFulReferrals = auth()->user()->successfulReferrals()->get();
+
+        return view('home')->with([
+            'referral_points' => count($successFulReferrals),
+            'successful_referrals' => $successFulReferrals
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\ExistingEmails;
+use App\Rules\MaxReferrals;
 use App\Rules\UninvitedEmails;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -31,6 +32,7 @@ class CreateReferralRequest extends FormRequest
                 'array',
                 new ExistingEmails,
                 new UninvitedEmails,
+                new MaxReferrals
             ]
         ];
     }
